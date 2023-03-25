@@ -30,6 +30,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	background-color: #fffef8;
 }
 ol, ul {
 	list-style: none;
@@ -95,7 +96,11 @@ nav li {
 	font-size: 1.2em;
 }
 
-li:hover {
+li a{
+	text-decoration: none;
+	color: black;
+}
+li a:hover {
 	color: #B1663C;
 }
 #introduction {
@@ -178,6 +183,8 @@ input[type="submit"]{
 	width: 180px;
 	text-align: center;
 	border-radius: 60px ;
+	border: none;
+	padding: 10px 0;
 }
 
 footer nav ul {
@@ -208,3 +215,27 @@ footer nav ul {
 	cursor: pointer;
 	transition: .3s;
 }
+
+.titreLogin{
+	align-self: center;
+	margin-bottom: 30px;
+}
+.login{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.formulaire-login{
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 10px;
+}
+
+input[type="text"] ,input[type="password"] {
+	border: none;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+	height: 40px;
+	width: 300px;
+}
+
