@@ -7,7 +7,7 @@
     console.log("email: ", email);
     console.log("password: ", password);
     if (email=="" || password=="") {
-        errorMessage.innerHTML = "Veuillez remplir tous les champs";
+        errorMessage.innerText = "Veuillez remplir tous les champs";
         return //ne poursuit pas le code 
     }
     fetch("http://localhost:5678/api/users/login", {
@@ -25,12 +25,12 @@
                 return res.json();
             }
             else if(res.status == 401) {
-            errorMessage.innerHTML = "Accès non autrorisé";
+                errorMessage.innerHTML = "Accès non autrorisé";
             }
             else if (res.status == 404) {
-            errorMessage.innerHTML = "Utilisateur non trouvé";
+                errorMessage.innerHTML = "Utilisateur non trouvé";
             } else {
-            errorMessage.innerHTML = "Erreur " +res.status;
+                errorMessage.innerHTML = "Erreur " +res.status;
             }
             })
             .then(data => {
