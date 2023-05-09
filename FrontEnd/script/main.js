@@ -39,11 +39,15 @@ if (isAuth()) {
             
     const removeWork = async (id) => {
 
+        const localStorageValue = sessionStorage.getItem('data'); // Récupération de la valeur stockée avec la clé 'data'
+        const parsedObject = JSON.parse(localStorageValue); // Conversion de la chaîne de caractères en objet JavaScript
+        const token = parsedObject.token; // Récupération de la valeur de la propriété 'token'
+
         await fetch(`http://localhost:5678/api/works/${parseInt(id)}`, {
             method: 'DELETE',
             headers: {
                 "accept": "*/*",
-                "Authorization": `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY4MzI5MDg0MSwiZXhwIjoxNjgzMzc3MjQxfQ.PemLAShVNWBRaXY8OjgSFM6fpxMipcJOEW9Z42SEq74`,
+                "Authorization": `Bearer ${token}`,
             }
         })
         .then(() => {
@@ -59,7 +63,6 @@ if (isAuth()) {
    const submitFormButton = document.querySelector('#submit-work')
    submitFormButton.addEventListener("click", (e) => {
         e.preventDefault();
-        console.log('coucou')
         const image = document.querySelector('#image').files[0]
         const title = document.querySelector('#title').value
         const category = parseInt(document.querySelector('.category-selector').value)
@@ -77,6 +80,9 @@ if (isAuth()) {
             title: title,
             category: category
         }
+        const localStorageValue = sessionStorage.getItem('data'); // Récupération de la valeur stockée avec la clé 'data'
+        const parsedObject = JSON.parse(localStorageValue); // Conversion de la chaîne de caractères en objet JavaScript
+        const token = parsedObject.token; // Récupération de la valeur de la propriété 'token'
 
         const formData = new FormData()
         formData.append('image', data.image)
@@ -87,7 +93,7 @@ if (isAuth()) {
             method: 'POST',
             headers: {
                 "accept": "*/*",
-                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY4MzI5MDg0MSwiZXhwIjoxNjgzMzc3MjQxfQ.PemLAShVNWBRaXY8OjgSFM6fpxMipcJOEW9Z42SEq74"            },
+                "Authorization": `Bearer ${token}`  },
             body: formData
         })
         .then(response => response.json())
@@ -118,7 +124,8 @@ if (isAuth()) {
             corbeille.classList.add('corbeille')
             corbeille.setAttribute("src", "../FrontEnd/assets/images/corbeille.png")
 
-            corbeille.addEventListener("click",() => {
+            corbeille.addEventListener("click",(e) => {
+                e.preventDefault()
                 console.log("work "+arrayWorks[index].id+" has been deleted");
                 removeWork(arrayWorks[index].id)
             })
@@ -143,3 +150,7 @@ if (isAuth()) {
       
 
 }
+
+
+
+

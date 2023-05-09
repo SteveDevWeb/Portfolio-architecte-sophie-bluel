@@ -36,7 +36,7 @@
             .then(data => {
                 console.log("data: ", data);
                 if (data) {
-                window.localStorage.setItem("data", JSON.stringify(data));
+                window.sessionStorage.setItem("data", JSON.stringify(data));
                 window.location.href = "./index.html"
             }
             })
