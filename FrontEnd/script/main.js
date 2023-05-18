@@ -59,6 +59,18 @@ if (isAuth()) {
 
     // Fonction d'ajout de travaux (works)
        
+    const uploadInput = document.getElementById('image');
+    const uploadedImage = document.getElementById('uploaded-image');
+
+    uploadInput.addEventListener('change', function(event) {
+        const file = event.target.files[0];
+    
+        if (file) {
+            const imageURL = URL.createObjectURL(file);
+            uploadedImage.src = imageURL;
+            uploadedImage.style.display="block"
+        }
+    })
 
    const submitFormButton = document.querySelector('#submit-work')
    submitFormButton.addEventListener("click", (e) => {

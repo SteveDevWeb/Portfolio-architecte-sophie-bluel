@@ -42,10 +42,10 @@
 				<div class="close-button1">X</div>
 				<div class="title">Galerie photo</div>
 				<div id="gallery-works"></div>
-				<button class="add-work">ajouter une photo</button>
+				<button class="add-work">Ajouter une photo</button>
 			</div>
 			<div class="wrapper-modal-add" style="display: none;">
-				<div class="close-button2">Z</div>
+				<div class="close-button2">X</div>
 				<div class="title">Ajout photo</div>
 
 
@@ -53,7 +53,7 @@
 					
 				<form action="" class="add-work-form">
 					<div class="form-group background">
-						<svg width="50px" height="30px" viewBox="0 0 58 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<svg class="pic-svg" width="50px" height="30px" viewBox="0 0 58 46" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M57 0H1C0.448 0 0 0.447 0 1V45C0 45.553 0.448 46 1 46H57C57.552 46 58 45.553 58 45V1C58 0.447 57.552 0 57 0ZM56 44H2V2H56V44Z" fill="#B9C5CC"/>
 							<path d="M16 22.138C19.071 22.138 21.569 19.64 21.569 16.57C21.569 13.498 19.071 11 16 11C12.929 11 10.431 13.498 10.431 16.569C10.431 19.64 12.929 22.138 16 22.138ZM16 13C17.968 13 19.569 14.602 19.569 16.569C19.569 18.536 17.968 20.138 16 20.138C14.032 20.138 12.431 18.537 12.431 16.57C12.431 14.603 14.032 13 16 13Z" fill="#B9C5CC"/>
 							<path d="M7.00004 40C7.23404 40 7.47004 39.918 7.66004 39.751L23.973 25.389L34.275 35.69C34.666 36.081 35.298 36.081 35.689 35.69C36.08 35.299 36.08 34.667 35.689 34.276L30.882 29.469L40.063 19.415L51.324 29.738C51.731 30.111 52.364 30.083 52.737 29.676C53.11 29.269 53.083 28.636 52.675 28.263L40.675 17.263C40.479 17.084 40.218 16.995 39.955 17.001C39.69 17.013 39.44 17.13 39.261 17.326L29.467 28.053L24.724 23.31C24.35 22.937 23.752 22.918 23.356 23.266L6.33904 38.249C5.92404 38.614 5.88404 39.246 6.24904 39.661C6.44704 39.886 6.72304 40 7.00004 40Z" fill="#B9C5CC"/>
@@ -61,6 +61,7 @@
 						<label class="upload-label" for="image">+ Ajouter photo</label>
 						<input type="file" hidden name="image" id="image" class="js-image-changer" accept="image/png, image/jpeg, image/jpg, image/webp" >
 						<p class="upload-info">jpg, png: 4mo max</p>
+						<img id="uploaded-image" src="#" alt="Uploaded Image" style="display: none;">
 					</div>
 					<div class="form-group">
 						<label class="text-label" for="title">Titre</label>
@@ -76,8 +77,7 @@
 						</select>
 					</div>
 					<p class=form-errors></p>
-					<div class="bar"></div>
-					<input type="submit" value="Valider" id="submit-work">
+					<input class="valider" type="submit" value="Valider" id="submit-work">
 				</form>
 			
 
@@ -86,7 +86,7 @@
 
 
 
-				<button class="back-delete">back</button>
+				<img class="back-delete" src="../FrontEnd/assets/images/arrow.svg" alt="arrow">
 			</div>
 
 		</aside>
